@@ -11,7 +11,7 @@
     },
     "scripts": {
         "build": "bunx vite build && mv ./dist/client/index.html ./dist/index.html && bun build --minify-whitespace --minify-syntax --target bun --outfile ./dist/server.js ./server.ts",
-        "start": "NODE_ENV=production bun ./dist/server.js",
+        "start": "[ -f ./dist/server.js ] || ( echo '' && echo 'Warning: No build detected in project.' && echo '' && echo '    -> bun run build' && echo '    -> bun run start' && echo '' ); [ -f ./dist/server.js ] && NODE_ENV=production bun ./dist/server.js",
         "dev": "bunx vite & bun run --watch server.ts"
     },
     "devDependencies": {
