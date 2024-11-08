@@ -23,7 +23,7 @@ export default defineConfig({
             output: {
                 entryFileNames: "assets/static/chunks/[hash].js",
                 chunkFileNames: "assets/static/chunks/[hash].js",
-                assetFileNames: ( assetInfo) => {
+                assetFileNames: ( assetInfo ) => {
                     if ( assetInfo.name?.endsWith( '.css' ) ) {
                       return 'assets/static/css/[hash][extname]';
                     }
