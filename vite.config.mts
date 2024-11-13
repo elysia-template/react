@@ -9,7 +9,7 @@ export default defineConfig({
     plugins: [
         react(),
         {
-            name: 'move-static-index-page',
+            name: 'handler-after-build',
             closeBundle() {
                 renameSync(
                     resolve( __dirname, 'dist/client/index.html' ),
@@ -25,8 +25,9 @@ export default defineConfig({
     server: {
         port: 3000,
         proxy: {
-            '/api': {
-                rewrite: path => path,
+            '/api': "http://localhost:3001",
+            '/swagger': {
+                rewrite: ( URI ) => ['/swagger', '/swagger/json'].includes( URI ) ? URI : '',
                 target: "http://localhost:3001",
                 changeOrigin: true
             }
