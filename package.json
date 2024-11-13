@@ -10,9 +10,10 @@
         "react-router-dom": "^6.27.0"
     },
     "scripts": {
-        "build": "bunx vite build && mv ./dist/client/index.html ./dist/index.html && bun build --minify-whitespace --minify-syntax --target bun --outfile ./dist/server.js ./server.ts",
+        "build": "bunx vite build && bun build --minify-whitespace --minify-syntax --target bun --outfile ./dist/server.js ./server.ts",
         "start": "[ -f ./dist/server.js ] || ( echo '' && echo 'Warning: No build detected in project.' && echo '' && echo '    -> bun run build' && echo '    -> bun run start' && echo '' ); [ -f ./dist/server.js ] && NODE_ENV=production bun ./dist/server.js",
-        "dev": "bunx vite & bun run --watch server.ts"
+        "dev": "bunx vite & bun run --watch server.ts",
+        "lint": "bunx eslint ."
     },
     "devDependencies": {
         "@eslint/js": "^9.13.0",
