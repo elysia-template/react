@@ -30,7 +30,7 @@ if ( production ) {
 }
 
 app.group( "/api", ( app ) =>
-    app.get( "/", () => ({ code:200, message:"Welcome!" }) )
+    app.get( "/", () => ({ code:200, message:"Welcome Developer!" }) )
 )
 
-app.listen( production ? 3000 : 3001 );
+app.listen( production ? 3000 : 5487 );

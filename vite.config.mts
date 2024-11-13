@@ -25,11 +25,19 @@ export default defineConfig({
     server: {
         port: 3000,
         proxy: {
-            '/api': "http://localhost:3001",
-            '/swagger': {
-                rewrite: ( URI ) => ['/swagger', '/swagger/json'].includes( URI ) ? URI : '',
-                target: "http://localhost:3001",
-                changeOrigin: true
+            '/api': "http://localhost:5487",
+            '^/swagger$': {
+              target: 'http://localhost:5487',
+              changeOrigin: true,
+            },
+            '^/swagger/json$': {
+              target: 'http://localhost:5487',
+              changeOrigin: true,
+            },
+            '^/swagger/.*': {
+              bypass: (req) => {
+                return req.url;
+              }
             }
         }
     },
