@@ -17,8 +17,9 @@ const staticFiles = ( directory: string ) => {
 const app = new Elysia()
 
 if ( production ) {
-    app.use( staticFiles( resolve( __dirname, "./dist/client" ) ) )
-    app.get( "*", () => Bun.file( resolve( __dirname, "./dist/index.html" ) ) )
+    const __pathname = new URL( '.', import.meta.url ).pathname;
+    app.use( staticFiles( resolve( __pathname, "client" ) ) )
+    app.get( "*", () => Bun.file( resolve( __pathname, "index.html" ) ) )
 }
 
 app.group( "/api", ( app ) =>
