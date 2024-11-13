@@ -1,7 +1,7 @@
 
 import { resolve } from "path";
 import { Elysia } from "elysia";
-import { swagger } from '@elysiajs/swagger'
+import { swagger } from "@elysiajs/swagger";
 
 const production = import.meta.env['NODE_ENV'] === "production";
 
