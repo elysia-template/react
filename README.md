@@ -32,3 +32,7 @@ This will serve the built application from the dist directory. Make sure you run
 ## Folder Structure
 - `client/` - The frontend React application.
 - `dist/` - The build output for production.
+
+## Client Files
+- `client/src/main.tsx` - React router
+- `client/src/components/` - React components
