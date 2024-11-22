@@ -6,6 +6,7 @@ import { renameSync, writeFileSync } from 'fs'
 
 export default defineConfig({
     root: "client",
+    esbuild: { legalComments: 'none' },
     plugins: [
         react(),
         {
